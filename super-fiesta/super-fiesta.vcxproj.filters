@@ -19,6 +19,21 @@
     <Filter Include="src\shaders">
       <UniqueIdentifier>{54227f66-c49f-43db-931d-06bf838ac701}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\engine\camera">
+      <UniqueIdentifier>{d689e288-511e-4171-8e80-0d165474cb65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\modules">
+      <UniqueIdentifier>{7419957f-1c92-4012-8010-5c73c3656261}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\core">
+      <UniqueIdentifier>{14812366-bf21-4737-bcb9-65a99a652a85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\geometry">
+      <UniqueIdentifier>{a5189884-4270-4b3e-9662-7cd0d2a081c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\shaders">
+      <UniqueIdentifier>{e4481ce0-b86f-41ef-94d8-4dcbe0002e77}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\GLFW\glfw3.h">
@@ -28,25 +43,28 @@
       <Filter>headers\GL</Filter>
     </ClInclude>
     <ClInclude Include="src\Camera.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\DefaultShader.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Drawable.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameObject.h">
-      <Filter>src</Filter>
+      <Filter>src\engine\camera</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics.h">
-      <Filter>src</Filter>
+      <Filter>src\engine\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Drawable.h">
+      <Filter>src\engine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject.h">
+      <Filter>src\engine\core</Filter>
     </ClInclude>
     <ClInclude Include="src\Triangle.h">
-      <Filter>src</Filter>
+      <Filter>src\engine\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DefaultShader.h">
+      <Filter>src\engine\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ShaderProgram.h">
+      <Filter>src\engine\shaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -54,19 +72,19 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Camera.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DefaultShader.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine.cpp">
-      <Filter>src</Filter>
+      <Filter>src\engine\camera</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics.cpp">
-      <Filter>src</Filter>
+      <Filter>src\engine\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine.cpp">
+      <Filter>src\engine</Filter>
     </ClCompile>
     <ClCompile Include="src\Triangle.cpp">
-      <Filter>src</Filter>
+      <Filter>src\engine\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DefaultShader.cpp">
+      <Filter>src\engine\shaders</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

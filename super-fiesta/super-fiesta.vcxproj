@@ -162,6 +162,7 @@
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\Graphics.h" />
+    <ClInclude Include="src\ShaderProgram.h" />
     <ClInclude Include="src\Triangle.h" />
   </ItemGroup>
   <ItemGroup>

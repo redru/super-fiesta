@@ -40,6 +40,8 @@ void Triangle::draw() {
 
 	glUniformMatrix4fv(Engine::graphics().defaultShader().uMvp(), 1, GL_FALSE, &mvp[0][0]);
 
+	glUseProgram(Engine::graphics().defaultShader().program());
+
 	// draw points 0-3 from the currently bound VAO with current in-use shader
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 }
