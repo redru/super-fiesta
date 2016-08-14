@@ -2,14 +2,16 @@
 
 using namespace std;
 
+float Engine::_aspectRatio = (float)1400 / (float)800;
 Graphics Engine::_graphics;
+Camera Engine::_camera;
 GLFWwindow* Engine::_context = NULL;
 int Engine::_state = Engine::ENGINE_STATE_NOT_STARTED;
-float Engine::_aspectRatio = (float) 1400 / (float) 800;
 
 int Engine::init() {
 	cout << "[engine] init" << endl;
 	Engine::_graphics.init();
+	Engine::_camera.ratio(_aspectRatio);
 
 	Engine::_state = Engine::ENGINE_STATE_INITIALIZED;
 	return Engine::_state;
@@ -17,12 +19,9 @@ int Engine::init() {
 
 int Engine::start() {
 	cout << "[engine] start" << endl;
+	Engine::_camera.generateMVP();
 	
-	Camera camera;
-	camera.generateMVP();
-	
-	Triangle triangle;
-	triangle.mvp = camera.mvp();
+	Triangle triangle(Engine::_camera, Engine::graphics().defaultShader().program());
 
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 

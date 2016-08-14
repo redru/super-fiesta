@@ -12,10 +12,6 @@ const float Triangle::colours[] = {
 	0.0f, 0.0f,  1.0f
 };
 
-Triangle::Triangle() {
-	
-}
-
 void Triangle::draw() {
 	GLuint points_vbo = 0;
 	glGenBuffers(1, &points_vbo);
@@ -38,9 +34,9 @@ void Triangle::draw() {
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 
-	glUniformMatrix4fv(Engine::graphics().defaultShader().uMvp(), 1, GL_FALSE, &mvp[0][0]);
+	glUniformMatrix4fv(Engine::graphics().defaultShader().uMvp(), 1, GL_FALSE, &_camera.mvp()[0][0]);
 
-	glUseProgram(Engine::graphics().defaultShader().program());
+	glUseProgram(_shader);
 
 	// draw points 0-3 from the currently bound VAO with current in-use shader
 	glDrawArrays(GL_TRIANGLES, 0, 3);

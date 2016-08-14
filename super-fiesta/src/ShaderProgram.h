@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <iostream>
 #include <fstream>
 
 #include <GL\glew.h>

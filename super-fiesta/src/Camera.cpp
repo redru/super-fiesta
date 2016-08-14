@@ -2,7 +2,7 @@
 
 void Camera::generateMVP() {
 	// Projection matrix : 45° Field of View, 4 : 3 ratio, display range : 0.1 unit <-> 100 units
-	_projectionM = perspective(radians(45.0f), Engine::aRatio(), 0.1f, 100.0f);
+	_projectionM = perspective(radians(45.0f), _ratio, 0.1f, 100.0f);
 
 	_viewM = lookAt(
 		vec3(4, 3, 3), // Camera is at (4,3,3), in World Space

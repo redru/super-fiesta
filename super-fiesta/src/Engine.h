@@ -4,9 +4,9 @@
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 
+#include "Camera.h"
 #include "Graphics.h"
 #include "Triangle.h"
-#include "Camera.h"
 
 class Engine {
 
@@ -19,7 +19,11 @@ public:
 
 	static inline Graphics& graphics() { return Engine::_graphics; }
 
-	static inline void aRatio(float aspectRatio) { Engine::_aspectRatio = aspectRatio; }
+	static inline void aRatio(float aspectRatio) { 
+		Engine::_aspectRatio = aspectRatio;
+		Engine::_camera.ratio(aspectRatio);
+	}
+
 	static inline float aRatio() { return Engine::_aspectRatio; }
 
 	static const int ENGINE_STATE_ERROR;
@@ -38,5 +42,6 @@ private:
 	static float _aspectRatio;
 
 	static Graphics _graphics;
+	static Camera _camera;
 
 };

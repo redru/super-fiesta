@@ -1,22 +1,20 @@
 #pragma once
 #include <GL\glew.h>
+#include <GLFW\glfw3.h>
 #include <glm\glm.hpp>
 
+#include "Engine.h"
 #include "GameObject.h"
 #include "Drawable.h"
-#include "Camera.h"
 
 using namespace glm;
 
 class Triangle : public GameObject, public Drawable {
 	
 public:
-	Triangle();
+	Triangle(Camera cam = Camera(), GLuint shad = -1) : Drawable(cam, shad) { }
 
-	// Virtual overridden
 	void draw() override;
-
-	mat4 mvp;
 
 private:
 	const static float points[];
