@@ -1,17 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="src">
+      <UniqueIdentifier>{b1c29950-8e80-47ea-9fcd-b300d4c27947}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    <Filter Include="headers">
+      <UniqueIdentifier>{adb7a01f-70c3-4abf-9c43-6984eade5a42}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="headers\GL">
+      <UniqueIdentifier>{154ea78a-3fcc-4463-9959-b92c26f64c00}</UniqueIdentifier>
     </Filter>
+    <Filter Include="headers\GLFW">
+      <UniqueIdentifier>{7c7d90c4-646b-4cdd-ab10-c16488201c92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine">
+      <UniqueIdentifier>{4f878ae1-ad58-4c0d-90bd-1f863ae9cc45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\shaders">
+      <UniqueIdentifier>{54227f66-c49f-43db-931d-06bf838ac701}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\GLFW\glfw3.h">
+      <Filter>headers\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\GL\glew.h">
+      <Filter>headers\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DefaultShader.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Drawable.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Triangle.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DefaultShader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Triangle.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shaders\default.frag">
+      <Filter>src\shaders</Filter>
+    </None>
+    <None Include="src\shaders\default.vert">
+      <Filter>src\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
