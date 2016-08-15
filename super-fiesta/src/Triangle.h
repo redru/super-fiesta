@@ -8,11 +8,13 @@ using namespace glm;
 class Triangle : public GameObject, public Drawable {
 	
 public:
-	Triangle(Camera cam = Camera(), GLuint shad = -1) : Drawable(cam, shad) { }
+	Triangle(Camera& cam = Camera(), GLuint shad = -1);
 
 	void draw() override;
 
 private:
+	GLuint vao = 0;
+
 	const static float points[];
 	const static float colours[];
 

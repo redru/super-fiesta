@@ -18,7 +18,11 @@ int Engine::_state = Engine::ENGINE_STATE_NOT_STARTED;
 int Engine::init() {
 	cout << "[engine] init" << endl;
 	Engine::_graphics.initShaders();
+
 	Engine::_camera.ratio(_aspectRatio);
+	Engine::_camera.position(glm::vec3(4.0f, 3.0f, 15.0f));
+	Engine::_camera.look(glm::vec3(0.0f, 0.0f, 0.0f));
+	Engine::_camera.generateMVP();
 
 	Engine::_state = Engine::ENGINE_STATE_INITIALIZED;
 	return Engine::_state;
@@ -26,7 +30,6 @@ int Engine::init() {
 
 int Engine::start() {
 	cout << "[engine] start" << endl;
-	Engine::_camera.generateMVP();
 	
 	Triangle triangle(Engine::_camera, Engine::graphics().defaultShader().program());
 
@@ -39,8 +42,14 @@ int Engine::start() {
 		/* Render here */
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		triangle.move(glm::vec3(0.0f, 0.0f, 0.01f));
-		triangle.rotate(glm::vec3(1.0f, 1.0f, 1.0f));
+		glm::vec3 tmpMoveVector = glm::vec3(0.0f, 0.0f, 0.08f);
+		triangle.move(tmpMoveVector);
+
+		Engine::_camera.look(triangle.position());
+		//Engine::_camera.move(tmpMoveVector);
+		Engine::_camera.invert();
+		Engine::_camera.generateMVP();
+
 		triangle.draw();
 
 		/* Swap front and back buffers */
