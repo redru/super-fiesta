@@ -1,6 +1,6 @@
 #include "Graphics.h"
 
-int Graphics::init() {
+int Graphics::initShaders() {
 	_defaultShader.init();
 
 	return 0;

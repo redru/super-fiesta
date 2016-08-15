@@ -7,15 +7,10 @@
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 
-class ShaderProgram {
+class ShaderUtils {
 
 public:
-	inline GLuint program() { return _program; }
-
-protected:
-	GLuint _program;
-
-	int loadProgram(const char * vertex_file_path, const char * fragment_file_path) {
+	static GLuint loadProgram(const char * vertex_file_path, const char * fragment_file_path) {
 		// Create the shaders
 		GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 		GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
@@ -30,7 +25,8 @@ protected:
 			}
 
 			VertexShaderStream.close();
-		} else {
+		}
+		else {
 			printf("Impossible to open %s. Are you in the right directory ? Don't forget to read the FAQ !\n", vertex_file_path);
 			getchar();
 			return 1;
@@ -101,8 +97,7 @@ protected:
 		glDeleteShader(VertexShaderID);
 		glDeleteShader(FragmentShaderID);
 
-		_program = ProgramID;
-		return 0;
+		return ProgramID;
 	}
 
 };

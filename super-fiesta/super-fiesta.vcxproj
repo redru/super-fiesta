@@ -162,15 +162,15 @@
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\Graphics.h" />
-    <ClInclude Include="src\ShaderProgram.h" />
+    <ClInclude Include="src\BaseShaderProgram.h" />
     <ClInclude Include="src\Triangle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Camera.cpp" />
-    <ClCompile Include="src\DefaultShader.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\Graphics.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ShaderUtils.h" />
     <ClCompile Include="src\Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,8 @@
 #pragma once
 #include <iostream>
+#include <chrono>
+#include <thread>
+#include <string>
 
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
@@ -26,6 +29,9 @@ public:
 
 	static inline float aRatio() { return Engine::_aspectRatio; }
 
+	static const int FPS;
+	static const long SLEEP_TIME;
+
 	static const int ENGINE_STATE_ERROR;
 	static const int ENGINE_STATE_NOT_STARTED;
 	static const int ENGINE_STATE_INITIALIZED;
@@ -40,6 +46,10 @@ private:
 
 	static int _state;
 	static float _aspectRatio;
+
+	static double beginTime;
+	static double endTime;
+	static long elapsedTime;
 
 	static Graphics _graphics;
 	static Camera _camera;

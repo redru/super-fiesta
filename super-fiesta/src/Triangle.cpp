@@ -34,7 +34,8 @@ void Triangle::draw() {
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 
-	glUniformMatrix4fv(Engine::graphics().defaultShader().uMvp(), 1, GL_FALSE, &_camera.mvp()[0][0]);
+	glUniformMatrix4fv(Engine::graphics().defaultShader().uniformId("mvp"), 1, GL_FALSE, &_camera.mvp()[0][0]);
+	glUniformMatrix4fv(Engine::graphics().defaultShader().uniformId("transform"), 1, GL_FALSE, &transform()[0][0]);
 
 	glUseProgram(_shader);
 

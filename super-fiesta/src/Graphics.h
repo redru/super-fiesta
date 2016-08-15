@@ -6,7 +6,7 @@
 class Graphics {
 
 public:
-	int init();
+	int initShaders();
 
 	inline DefaultShader& defaultShader() { return _defaultShader; }
 

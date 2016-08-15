@@ -63,7 +63,7 @@
     <ClInclude Include="src\DefaultShader.h">
       <Filter>src\engine\shaders</Filter>
     </ClInclude>
-    <ClInclude Include="src\ShaderProgram.h">
+    <ClInclude Include="src\BaseShaderProgram.h">
       <Filter>src\engine\shaders</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,7 +83,7 @@
     <ClCompile Include="src\Triangle.cpp">
       <Filter>src\engine\geometry</Filter>
     </ClCompile>
-    <ClCompile Include="src\DefaultShader.cpp">
+    <ClCompile Include="src\ShaderUtils.h">
       <Filter>src\engine\shaders</Filter>
     </ClCompile>
   </ItemGroup>

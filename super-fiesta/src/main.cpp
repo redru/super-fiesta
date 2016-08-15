@@ -16,7 +16,7 @@ int main() {
 		return -1;
 
 	/* Create a windowed mode window and its OpenGL context */
-	GLFWwindow* window = glfwCreateWindow(1400, 800, "ProjectRed", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(1400, 800, "Super Fiesta", NULL, NULL);
 	if (!window) {
 		glfwTerminate();
 		return -1;

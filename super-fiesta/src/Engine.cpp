@@ -2,7 +2,14 @@
 
 using namespace std;
 
-float Engine::_aspectRatio = (float)1400 / (float)800;
+const int Engine::FPS = 30;
+const long Engine::SLEEP_TIME = 1000 / Engine::FPS;
+
+double Engine::beginTime = 0;
+double Engine::endTime = 0;
+long Engine::elapsedTime = 0;
+
+float Engine::_aspectRatio = (float) 1400 / (float) 800;
 Graphics Engine::_graphics;
 Camera Engine::_camera;
 GLFWwindow* Engine::_context = NULL;
@@ -10,7 +17,7 @@ int Engine::_state = Engine::ENGINE_STATE_NOT_STARTED;
 
 int Engine::init() {
 	cout << "[engine] init" << endl;
-	Engine::_graphics.init();
+	Engine::_graphics.initShaders();
 	Engine::_camera.ratio(_aspectRatio);
 
 	Engine::_state = Engine::ENGINE_STATE_INITIALIZED;
@@ -27,9 +34,13 @@ int Engine::start() {
 
 	/* Loop until the user closes the context */
 	while (!glfwWindowShouldClose(Engine::_context)) {
+		Engine::beginTime = glfwGetTime();
+
 		/* Render here */
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+		triangle.move(glm::vec3(0.0f, 0.0f, 0.01f));
+		triangle.rotate(glm::vec3(1.0f, 1.0f, 1.0f));
 		triangle.draw();
 
 		/* Swap front and back buffers */
@@ -37,6 +48,12 @@ int Engine::start() {
 
 		/* Poll for and process events */
 		glfwPollEvents();
+
+		Engine::endTime = glfwGetTime();
+		Engine::elapsedTime = (long) (Engine::endTime - Engine::beginTime);
+
+		if (elapsedTime < Engine::SLEEP_TIME)
+			std::this_thread::sleep_for(std::chrono::milliseconds(Engine::SLEEP_TIME - elapsedTime));
 	}
 
 	glfwTerminate();

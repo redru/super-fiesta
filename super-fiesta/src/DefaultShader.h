@@ -1,22 +1,16 @@
 #pragma once
-#include <iostream>
-#include <string>
-#include <vector>
-#include <fstream>
+#include "ShaderUtils.h"
+#include "BaseShaderProgram.h"
 
-#include <GL\glew.h>
-#include <GLFW\glfw3.h>
-
-#include "ShaderProgram.h"
-
-class DefaultShader : public ShaderProgram {
+class DefaultShader : public BaseShaderProgram {
 
 public:
-	int init();
+	int DefaultShader::init() {
+		_program = ShaderUtils::loadProgram("./shaders/default.vert", "./shaders/default.frag");
+		uniformId("mvp", glGetUniformLocation(_program, "mvp"));
+		uniformId("transform", glGetUniformLocation(_program, "transform"));
 
-	inline GLuint uMvp() { return _uMvp; }
-
-private:
-	GLuint _uMvp;
+		return 0;
+	}
 
 };
