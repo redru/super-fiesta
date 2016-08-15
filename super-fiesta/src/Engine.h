@@ -16,6 +16,9 @@ class Engine {
 public:
 	static int init();
 	static int start();
+	static void keyCallback(int key, int scancode, int action, int mods);
+	static void mouseCallback(int button, int action, int mods);
+	static void scrollCallback(double xoffset,double yoffset);
 
 	static inline void context(GLFWwindow& _context) { Engine::_context = &_context; }
 	static inline GLFWwindow& context() { return *Engine::_context; }

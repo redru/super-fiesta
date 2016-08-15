@@ -43,11 +43,9 @@ int Engine::start() {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		glm::vec3 tmpMoveVector = glm::vec3(0.0f, 0.0f, 0.08f);
-		triangle.move(tmpMoveVector);
+		// triangle.move(tmpMoveVector);
 
-		Engine::_camera.look(triangle.position());
-		//Engine::_camera.move(tmpMoveVector);
-		Engine::_camera.invert();
+		// Engine::_camera.look(triangle.position());
 		Engine::_camera.generateMVP();
 
 		triangle.draw();
@@ -68,6 +66,38 @@ int Engine::start() {
 	glfwTerminate();
 
 	return 0;
+}
+
+void Engine::keyCallback(int key, int scancode, int action, int mods) {
+	if (action == GLFW_PRESS || action == GLFW_REPEAT) {
+		if (key == GLFW_KEY_W) {
+			Engine::_camera.move(glm::vec3(0.0f, 0.0f, -0.5f));
+			Engine::_camera.moveLook(glm::vec3(0.0f, 0.0f, -0.5f));
+		} else if (key == GLFW_KEY_A) {
+			Engine::_camera.move(glm::vec3(-0.5f, 0.0f, 0.0f));
+			Engine::_camera.moveLook(glm::vec3(-0.5f, 0.0f, 0.0f));
+		} else if(key == GLFW_KEY_S) {
+			Engine::_camera.move(glm::vec3(0.0f, 0.0f, 0.5f));
+			Engine::_camera.moveLook(glm::vec3(0.0f, 0.0f, 0.5f));
+		} else if(key == GLFW_KEY_D) {
+			Engine::_camera.move(glm::vec3(0.5f, 0.0f, 0.0f));
+			Engine::_camera.moveLook(glm::vec3(0.5f, 0.0f, 0.0f));
+		}
+	}	
+}
+
+void Engine::mouseCallback(int button, int action, int mods) {
+	
+}
+
+void Engine::scrollCallback(double xoffset, double yoffset) {
+	if (yoffset > 0) {
+		Engine::_camera.move(glm::vec3(0.0f, 0.5f, 0.0f));
+		Engine::_camera.moveLook(glm::vec3(0.0f, 0.5f, 0.0f));
+	} else {
+		Engine::_camera.move(glm::vec3(0.0f, -0.5f, 0.0f));
+		Engine::_camera.moveLook(glm::vec3(0.0f, -0.5f, 0.0f));
+	}
 }
 
 const int Engine::ENGINE_STATE_ERROR = 0x000000;

@@ -15,6 +15,11 @@ public:
 		_somethingChanged = true;
 	}
 
+	inline void moveLook(const glm::vec3& offset) {
+		_lookingAt += offset;
+		_somethingChanged = true;
+	}
+
 	inline glm::mat4 mvp() { return _mvp; }
 
 	inline void ratio(float rat) { 

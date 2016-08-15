@@ -7,6 +7,9 @@
 #include "Graphics.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 
 int main() {
 	std::cout << "starting..." << std::endl;
@@ -35,6 +38,9 @@ int main() {
 	fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
 
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+	glfwSetKeyCallback(window, key_callback);
+	glfwSetMouseButtonCallback(window, mouse_button_callback);
+	glfwSetScrollCallback(window, scroll_callback);
 
 	Engine::context(*window);
 	Engine::init();
@@ -47,4 +53,16 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
 	glViewport(0, 0, width, height);
 
 	Engine::aRatio(height > 0 ? (float) width / (float) height : 0.0);
+}
+
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+	Engine::keyCallback(key, scancode, action, mods);
+}
+
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
+	Engine::mouseCallback(button, action, mods);
+}
+
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {
+	Engine::scrollCallback(xoffset, yoffset);
 }
