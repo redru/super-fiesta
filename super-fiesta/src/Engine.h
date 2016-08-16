@@ -57,4 +57,6 @@ private:
 	static Graphics _graphics;
 	static Camera _camera;
 
+	static void testThreadFunction(int i);
+
 };

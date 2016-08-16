@@ -24,19 +24,37 @@ int Engine::init() {
 	Engine::_camera.look(glm::vec3(0.0f, 0.0f, 0.0f));
 	Engine::_camera.generateMVP();
 
+	std::thread t1(testThreadFunction, 5);
+	std::thread t2(start);
+	t1.detach();
+	t2.detach();
+
+	while (!glfwWindowShouldClose(Engine::_context)) {
+		std::cout << "Main thread" << std::endl;
+	}
+
 	Engine::_state = Engine::ENGINE_STATE_INITIALIZED;
 	return Engine::_state;
 }
 
+void Engine::testThreadFunction(int i) {
+		for (;;) {
+			std::cout << "Thread for" << std::endl;
+		}
+}
+
 int Engine::start() {
 	cout << "[engine] start" << endl;
+
+	GLFWwindow* window = glfwCreateWindow(1400, 800, "Second window", NULL, NULL);
+	glfwMakeContextCurrent(window);
 	
 	Triangle triangle(Engine::_camera, Engine::graphics().defaultShader().program());
 
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 
 	/* Loop until the user closes the context */
-	while (!glfwWindowShouldClose(Engine::_context)) {
+	while (!glfwWindowShouldClose(window)) {
 		Engine::beginTime = glfwGetTime();
 
 		/* Render here */
@@ -51,7 +69,7 @@ int Engine::start() {
 		triangle.draw();
 
 		/* Swap front and back buffers */
-		glfwSwapBuffers(_context);
+		glfwSwapBuffers(window);
 
 		/* Poll for and process events */
 		glfwPollEvents();

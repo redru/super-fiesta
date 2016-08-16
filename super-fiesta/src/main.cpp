@@ -44,7 +44,7 @@ int main() {
 
 	Engine::context(*window);
 	Engine::init();
-	Engine::start();
+	// Engine::start();
 
 	return 0;
 }
